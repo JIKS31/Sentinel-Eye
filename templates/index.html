@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drone Surveillance System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header>
+      <div class="container header-content">
+        <i data-lucide="camera" class="header-icon"></i>
+        <h1>Drone Surveillance System</h1>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+      <div class="grid">
+        <!-- Video Section -->
+        <div class="video-section">
+          <div class="section-header">
+            <i data-lucide="camera"></i>
+            <h2>Live Feed</h2>
+          </div>
+          <div class="video-container">
+            <img src="{{ url_for('video_feed') }}" class="video-stream">
+
+          </div>
+          <!-- Share Button -->
+
+        </div>
+
+        <!-- Detection Table -->
+        <div class="detection-section">
+          <div class="section-header">
+            <i data-lucide="user"></i>
+            <h2>Detection Log</h2>
+          </div>
+          <div class="table-container">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Time of detection</th>
+                    </tr>
+                </thead>
+                <tbody id="logBody">
+                    {% for detection in detections %}
+                    <tr>
+                        <td>{{ detection.time }}</td>
+                        <td>{{ detection.name }}</td>
+                        <td>{{ detection.location }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alert and Notification Section -->
+<div class="alert-section">
+  <div class="alert-grid">
+    <!-- Incident Alert -->
+    <div id="alertBox" class="alert-box small-radius">
+      <div class="alert-header">
+        <i data-lucide="alert-triangle"></i>
+        <h2>Incident Detection</h2>
+      </div>
+      <div class="table-container">
+      <table border="1" class="small-radius">
+        <thead>
+          <tr>
+           <th>Name</th>
+            <th>Location</th>
+          <th>Time of detection</th>
+        </tr>
+      </thead>
+      <tbody id="incidentBody">
+      </tbody>
+    </table>
+  </div>
+    </div>
+
+    <!-- Notification Box -->
+     <div id="notificationBox" class="notification-box">
+            <div class="notification-header">
+              <i data-lucide="user"></i>
+              <h2>Criminal Database</h2>
+            </div>
+            <div class="notification-content">
+              <table border="1">
+                <thead>
+                  <tr>
+                    <th>Image</th>
+                    <th>Filename</th>
+                  </tr>
+                </thead>
+                <tbody id="criminalImageBody">
+                  <!-- Dynamically filled -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/static/script.js"></script>
+  <script>
+     function updateLogs() {
+        fetch('/get_logs')
+            .then(response => response.json())
+            .then(data => {
+                // Update Criminal Log Table
+                let logBody = document.getElementById("logBody");
+                logBody.innerHTML = "";
+
+                data.criminals.forEach(log => {
+                    let row = `<tr>
+                        <td>${log.name}</td>
+                        <td>${log.location}</td>
+                        <td>${log.time}</td>
+                    </tr>`;
+                    logBody.innerHTML += row;
+                });
+
+                // Update Incident Table
+                let incidentBody = document.getElementById("incidentBody");
+                incidentBody.innerHTML = "";
+
+                data.incidents.forEach(incident => {
+                    let row = `<tr>
+                        <td>${incident.name}</td>
+                        <td>${incident.location}</td>
+                        <td>${incident.time}</td>
+                    </tr>`;
+                    incidentBody.innerHTML += row;
+                });
+            })
+            .catch(error => console.error('Error fetching logs:', error));
+    }
+function loadCriminalImages() {
+  fetch('/get_criminal_images')
+    .then(response => response.json())
+    .then(data => {
+      const criminalImageBody = document.getElementById("criminalImageBody");
+      criminalImageBody.innerHTML = "";
+
+      data.images.forEach(filename => {
+        const nameWithoutExt = filename.replace(/\.[^/.]+$/, "");  // remove extension
+        criminalImageBody.innerHTML += `
+          <tr>
+            <td><img src="/criminal_image/${filename}" alt="${nameWithoutExt}" width="60"></td>
+            <td>${nameWithoutExt}</td>
+          </tr>`;
+      });
+    })
+    .catch(error => console.error("Error loading criminal images:", error));
+}
+
+
+    // Initialize on load
+    window.onload = function () {
+      updateLogs();
+      loadCriminalImages();
+    };
+
+    // Refresh logs every second
+    setInterval(updateLogs, 1000);
+</script>
+
+</body>
+</html>

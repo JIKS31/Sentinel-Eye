@@ -1,0 +1,12 @@
+dlib==19.24.6
+Flask==3.1.0
+matplotlib==3.10.1
+mysql_connector_repackaged==0.3.1
+numpy==2.2.4
+opencv_contrib_python==4.11.0.86
+opencv_python==4.11.0.86
+opencv_python_headless==4.11.0.86
+scipy==1.15.2
+torch==2.5.0+cu124
+twilio==9.4.4
+ultralytics==8.3.70

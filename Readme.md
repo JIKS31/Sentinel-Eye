@@ -114,7 +114,7 @@ We are actively seeking contributors! Planned enhancements:
 - ✅ RetinaFace + ArcFace/Dlib for high-accuracy recognition.
 - ✅ Multi-GPU parallel inference support.
 - ✅ Admin dashboard for criminal profile management.
-
+- ✅ Location tracking and sending to admins.
 ---
 
 ## 🤝 Contributing

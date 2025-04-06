@@ -10,7 +10,7 @@ A real-time drone-based surveillance system powered by computer vision, designed
 - 🎥 **Live Video Feed** from drone camera.
 - 🧠 **YOLOv8 Detection** for criminal,weapon and accident activity.
 - 🧑‍💼 **Face Detection** with CNN facedetector.
-- 🧠 **Face Recognition** using dlib with ResNet.
+- 🧠 **Face Recognition** using dlib with ResNet (gpu).
 - 🔁 **SORT (Simple Online Realtime Tracking)** for tracking faces.
 - 📸 **Face Embedding Storage** and Euclidean distance for face points.
 - 🗃️ **Detection Logs** stored in MySQL.
@@ -105,16 +105,25 @@ Live feed with real-time detection logs and alerts.
 ![UI Screenshot](Frontend.png)
 
 ---
+## 🖥️ Current System Used
 
+- Laptop: Lenovo LOQ 15
+- GPU: NVIDIA RTX 4060 8GB (115W TGP)
+- CPU: AMD Ryzen 7 8845HS
+- RAM: 16GB DDR5
+- OS: Windows 11.
+- FPS : 15 fps achieved for project.
+- Frameworks: PyTorch, Flask
 ## 🛠️ Future Contributions
 
 We are actively seeking contributors! Planned enhancements:
-
+.......(pending)........
 - ✅ DeepSORT for improved tracking with appearance features.
 - ✅ RetinaFace + ArcFace/Dlib for high-accuracy recognition.
 - ✅ Multi-GPU parallel inference support.
 - ✅ Admin dashboard for criminal profile management.
 - ✅ Location tracking and sending to admins.
+- ✅ Model conversion to onnx format.
 ---
 
 ## 🤝 Contributing

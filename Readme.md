@@ -102,7 +102,7 @@ Visit `http://127.0.0.1:5000` in your browser.
 
 Live feed with real-time detection logs and alerts.
 
-![UI Screenshot](preview.png)
+![UI Screenshot](Frontend.png)
 
 ---
 

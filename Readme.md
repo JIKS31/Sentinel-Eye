@@ -12,7 +12,7 @@ A real-time drone-based surveillance system powered by computer vision, designed
 - 🧑‍💼 **Face Detection** with CNN facedetector.
 - 🧠 **Face Recognition** using dlib with ResNet.
 - 🔁 **SORT (Simple Online Realtime Tracking)** for tracking faces.
-- 📸 **Face Embedding Storage** and cosine similarity comparison.
+- 📸 **Face Embedding Storage** and Euclidean distance for face points.
 - 🗃️ **Detection Logs** stored in MySQL.
 - 🖼️ **Dynamic Criminal Database Display** (max 3 shown, rest scrollable).
 - 🧠 **Real-time incident alert** system on dashboard.

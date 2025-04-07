@@ -106,11 +106,18 @@ Live feed with real-time detection logs and alerts.
 
 ## Accident detection
 
+Accident detection from Drone shot.
+
 ![Accident](ACCIDENT_DRONE_SHOT.gif)
 
 ## Weapon
+Gun detection from hand.Its long range shot.
 
-![weapon](gun.gif)
+<p align="center">
+  <img src="gun.gif" alt="Demo GIF" width="500" height="300" style="margin-right: 10px;"/>
+  <img src="gun.png" alt="Photo" width="250"/>
+</p>
+
 
 ---
 ## 🖥️ Current System Used

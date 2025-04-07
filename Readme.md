@@ -107,6 +107,11 @@ Live feed with real-time detection logs and alerts.
 ## Accident detection
 
 ![Accident](ACCIDENT_DRONE_SHOT.gif)
+
+## Weapon
+
+![weapon](gun.gif)
+
 ---
 ## 🖥️ Current System Used
 

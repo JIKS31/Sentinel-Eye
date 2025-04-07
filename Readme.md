@@ -104,6 +104,9 @@ Live feed with real-time detection logs and alerts.
 
 ![UI Screenshot](Frontend.png)
 
+## Accident detection
+
+![Accident](ACCIDENT_DRONE_SHOT.gif)
 ---
 ## 🖥️ Current System Used
 

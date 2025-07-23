@@ -155,6 +155,8 @@ We are actively seeking contributors! Planned enhancements:
 
 - [JIKSON JIMMY](https://github.com/JIKS31)
 - [ANUGRAHA VV](https://github.com/)
+- [ARJUN NV](https://github.com/)
+- [SAYANTH SANTHOSH](https://github.com/)
 
 ---
 
